@@ -39,7 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basicas\Animal.cs" />
+    <Compile Include="Basicas\Cliente.cs" />
     <Compile Include="Basicas\Usuario.cs" />
+    <Compile Include="Basicas\Veterinario.cs" />
     <Compile Include="Erro\GeralException.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Erro\ConexaoException.cs" />

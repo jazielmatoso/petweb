@@ -1,1 +1,6 @@
 C:\projeto\petWeb\FrontEnd\bin\Release\FrontEnd.exe.config
+C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.csprojResolveAssemblyReference.cache
+C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.AlterarUsuario.resources
+C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.Form1.resources
+C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.Properties.Resources.resources
+C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.csproj.GenerateResource.Cache
