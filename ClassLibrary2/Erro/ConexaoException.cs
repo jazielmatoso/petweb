@@ -8,7 +8,16 @@ namespace Backend.Erro
 {
     public class ConexaoException : Exception
     {
-        public ConexaoException(string msg) : base(msg){
+
+        public ConexaoException()
+            : base()
+        {
+
+        }
+
+        public ConexaoException(string msg) 
+            : base(msg)
+        {
             
         }
     }

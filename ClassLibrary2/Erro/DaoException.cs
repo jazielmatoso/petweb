@@ -9,7 +9,14 @@ namespace Backend.Erro
     public class DaoException : Exception
     {
 
-        public DaoException(string msg) : base(msg) { 
+        public DaoException()
+            : base()
+        {
+        }
+
+        public DaoException(string msg) 
+            : base(msg) 
+        { 
         
         
         }   
