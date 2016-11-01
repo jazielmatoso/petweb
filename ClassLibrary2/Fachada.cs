@@ -11,25 +11,16 @@ namespace Backend
     public class Fachada
     {
 
-        private static Fachada instancia;
-        private sealed UsuarioController usuarioC;
+       
+        private UsuarioController usuarioC;
 
 
-        private Fachada() 
+        public Fachada() 
         {
              usuarioC = new UsuarioController();  
         }
 
         
-        public static Fachada getInstancia()
-        {
-            if (instancia == null)
-            {
-                instancia = new Fachada();
-            }
-
-            return instancia;
-        }
 
         public List<Usuario> listarUsuario()
         {
