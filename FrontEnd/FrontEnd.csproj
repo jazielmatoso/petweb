@@ -60,11 +60,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="CadastrarClienteView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CadastrarClienteView.Designer.cs">
       <DependentUpon>CadastrarClienteView.cs</DependentUpon>
+=======
+    <Compile Include="VacinaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VacinaView.Designer.cs">
+      <DependentUpon>VacinaView.cs</DependentUpon>
+>>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VacinaView.resx">
+      <DependentUpon>VacinaView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

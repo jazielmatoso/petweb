@@ -11,17 +11,26 @@ namespace Backend
     public class Fachada
     {
 
+<<<<<<< HEAD
         private static Fachada instancia;
         private UsuarioController usuarioC;
         private ClienteController clienteC;
 
 
         private Fachada()
+=======
+       
+        private UsuarioController usuarioC;
+
+
+        public Fachada() 
+>>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
         {
             usuarioC = new UsuarioController();
             clienteC = new ClienteController();
         }
 
+<<<<<<< HEAD
 
         public static Fachada getInstancia()
         {
@@ -32,6 +41,9 @@ namespace Backend
 
             return instancia;
         }
+=======
+        
+>>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
 
         public void inserirUsuario(Usuario usuario)
         {
