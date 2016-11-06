@@ -4,3 +4,16 @@ C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.AlterarUsuario.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.Form1.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.Properties.Resources.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.csproj.GenerateResource.Cache
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\bin\Release\FrontEnd.exe.config
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.csprojResolveAssemblyReference.cache
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.Form1.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.Properties.Resources.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.csproj.GenerateResource.Cache
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\bin\Release\FrontEnd.exe
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\bin\Release\FrontEnd.pdb
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\bin\Release\Backend.dll
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\bin\Release\Backend.pdb
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.exe
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.pdb
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.AlterarUsuarioView.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.CadastrarClienteView.resources

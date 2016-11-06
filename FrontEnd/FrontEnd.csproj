@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlterarUsuario.cs">
+    <Compile Include="AlterarUsuarioView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlterarUsuario.Designer.cs">
-      <DependentUpon>AlterarUsuario.cs</DependentUpon>
+    <Compile Include="AlterarUsuarioView.Designer.cs">
+      <DependentUpon>AlterarUsuarioView.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -60,10 +60,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastrarClienteView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarClienteView.Designer.cs">
+      <DependentUpon>CadastrarClienteView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AlterarUsuario.resx">
-      <DependentUpon>AlterarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="AlterarUsuarioView.resx">
+      <DependentUpon>AlterarUsuarioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarClienteView.resx">
+      <DependentUpon>CadastrarClienteView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

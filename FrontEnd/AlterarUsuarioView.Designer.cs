@@ -1,6 +1,6 @@
 ﻿namespace FrontEnd
 {
-    partial class AlterarUsuario
+    partial class AlterarUsuarioView
     {
         /// <summary>
         /// Required designer variable.

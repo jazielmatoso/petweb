@@ -30,15 +30,16 @@ namespace FrontEnd
            try
             {
 
-               Fachada f = new Fachada();
+                Fachada f = Fachada.getInstancia();
 
                this.listaUsuario = f.listarUsuario();
 
                listView1.Items.Clear();
                foreach (Usuario usuario in this.listaUsuario)
                {
-                  ListViewItem item =  listView1.Items.Add("" + usuario.Id);
+                  ListViewItem item =  listView1.Items.Add("" + usuario.CodUsuario);
                   item.SubItems.Add(usuario.Nome);
+                  item.SubItems.Add(usuario.Telefone);
                }
  
            }
@@ -54,12 +55,15 @@ namespace FrontEnd
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {   
-               
-                Fachada f = new Fachada();
+            {
+
+                Fachada f = Fachada.getInstancia();
                 Usuario usuario = new Usuario();
                 usuario.Nome = textBox1.Text;
-                f.cadastrarUsuario(usuario);    
+                usuario.Telefone = textBox2.Text;
+                usuario.Login = textBox3.Text;
+                usuario.Senha = textBox4.Text;
+                f.inserirUsuario(usuario);    
                 MessageBox.Show("Usuario cadastrado com sucesso!");
                 this.listarUsuarios();    
             }
@@ -80,7 +84,7 @@ namespace FrontEnd
         {
         
             int test = Convert.ToInt32(listView1.SelectedItems[0].Index.ToString());
-            AlterarUsuario fAlterarUsuario = new AlterarUsuario(this.listaUsuario[test]);
+            AlterarUsuarioView fAlterarUsuario = new AlterarUsuarioView(this.listaUsuario[test]);
             fAlterarUsuario.ShowDialog();
             listView1.SelectedItems[0].SubItems[1].Text = this.listaUsuario[test].Nome;  
             //listarUsuarios();
@@ -100,7 +104,7 @@ namespace FrontEnd
                 int test = Convert.ToInt32(listView1.SelectedItems[0].Index.ToString());
                 DialogResult dialogResult = MessageBox.Show("Deseja deletar Usuário " + this.listaUsuario[test].Nome.ToString(),"Confirm", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes) {
-                    Fachada f = new Fachada();
+                    Fachada f = Fachada.getInstancia();
                     f.deletarUsuario(this.listaUsuario[test]);
                    // listarUsuarios();
                     listView1.SelectedItems[0].Remove();

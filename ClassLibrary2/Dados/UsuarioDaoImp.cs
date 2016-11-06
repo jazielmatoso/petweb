@@ -26,13 +26,16 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO usuario (nome) VALUES (@nome)";
+                string sql = "INSERT INTO usuario (nome,login,senha,telefone)  VALUES (@nome,@login,@senha,@telefone)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
+                cmd.Parameters.AddWithValue("@login", usuario.Login);
+                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                cmd.Parameters.AddWithValue("@telefone", usuario.Telefone);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -63,7 +66,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
-                cmd.Parameters.AddWithValue("@id", usuario.Id);
+                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -92,7 +95,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", usuario.Id);
+                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -116,13 +119,13 @@ namespace Backend.Dados
                 this.conn.openConnection();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Select id,nome from usuario";
+                cmd.CommandText = "select id,nome,telefone from usuario";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                    usuario.CodUsuario = reader.GetInt32(reader.GetOrdinal("id"));
                     usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
                     lUsuario.Add(usuario);
                 }

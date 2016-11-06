@@ -13,17 +13,17 @@ using Backend.Erro;
 
 namespace FrontEnd
 {
-    public partial class AlterarUsuario : Form
+    public partial class AlterarUsuarioView : Form
     {
 
         private Usuario usuario = null;
 
-        public AlterarUsuario()
+        public AlterarUsuarioView()
         {
             InitializeComponent();
         }
 
-        public AlterarUsuario(Usuario usuario)
+        public AlterarUsuarioView(Usuario usuario)
         {
 
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace FrontEnd
             string msg = "";
             try {
 
-                Fachada f = new Fachada();
+                Fachada f = Fachada.getInstancia();
 
                 string nome = this.tNomeUsuario.Text;
                 if (!usuario.Nome.Equals(nome))

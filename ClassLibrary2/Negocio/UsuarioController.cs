@@ -42,6 +42,7 @@ namespace Backend.Negocio
 
         }
 
+   
 
         public void alterar(Usuario usuario)
         {
