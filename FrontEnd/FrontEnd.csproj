@@ -54,25 +54,29 @@
     <Compile Include="AlterarUsuarioView.Designer.cs">
       <DependentUpon>AlterarUsuarioView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastrarEspecieView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarEspecieView.Designer.cs">
+      <DependentUpon>CadastrarEspecieView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="CadastrarClienteView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CadastrarClienteView.Designer.cs">
       <DependentUpon>CadastrarClienteView.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="VacinaView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VacinaView.Designer.cs">
       <DependentUpon>VacinaView.cs</DependentUpon>
->>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarClienteView.resx">
       <DependentUpon>CadastrarClienteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarEspecieView.resx">
+      <DependentUpon>CadastrarEspecieView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

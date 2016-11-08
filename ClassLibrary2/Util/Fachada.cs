@@ -5,32 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend.Basicas;
 using Backend.Negocio;
+using Backend.Dados;
+using Backend.Util;
+
 
 namespace Backend
 {
     public class Fachada
     {
 
-<<<<<<< HEAD
+        //<<<<<<< HEAD
         private static Fachada instancia;
         private UsuarioController usuarioC;
         private ClienteController clienteC;
+        private EspecieController especieC;
 
 
-        private Fachada()
-=======
        
-        private UsuarioController usuarioC;
 
 
         public Fachada() 
->>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
+//>>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
         {
             usuarioC = new UsuarioController();
             clienteC = new ClienteController();
+            especieC = new EspecieController();
+
+
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
         public static Fachada getInstancia()
         {
@@ -41,9 +45,9 @@ namespace Backend
 
             return instancia;
         }
-=======
+//=======
         
->>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
+//>>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
 
         public void inserirUsuario(Usuario usuario)
         {
@@ -97,6 +101,32 @@ namespace Backend
         public void deletarCliente(Cliente cliente)
         {
             clienteC.deletar(cliente);
+        }
+
+        // Especie//
+
+        public void inserirEspecie(Especie especie)
+        {
+
+            especieC.cadastrar(especie);
+
+        }
+
+        public List<Especie> listarEspecie()
+        {
+            return especieC.listar();
+        }
+
+
+        public void alterarEspecie(Especie especie)
+        {
+           EspecieC.alterar(especie);
+        }
+
+
+        public void deletarEspecie(Especie especie)
+        {
+            EspecieC.deletar(cliente);
         }
     }
 }

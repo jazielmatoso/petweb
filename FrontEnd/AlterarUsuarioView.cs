@@ -1,5 +1,5 @@
-﻿using Backend;
-using Backend.Basicas;
+﻿
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Backend.Erro;
+using Backend;
+
+
+
 
 namespace FrontEnd
 {
     public partial class AlterarUsuarioView : Form
     {
+        public fachada f;
 
         private Usuario usuario = null;
 
@@ -45,7 +49,7 @@ namespace FrontEnd
             string msg = "";
             try {
 
-                Fachada f = Fachada.getInstancia();
+                 f.getInstancia();
 
                 string nome = this.tNomeUsuario.Text;
                 if (!usuario.Nome.Equals(nome))

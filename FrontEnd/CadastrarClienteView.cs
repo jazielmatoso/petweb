@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Backend.Basicas.Cliente;
 using Backend;
 using Backend.Basicas;
 
-namespace FrontEnd
+
+
+
+namespace FrontEnd 
 {
     public partial class CadastrarClienteView : Form
     {
+        Fachada f;
         public CadastrarClienteView()
         {
             InitializeComponent();
@@ -21,7 +26,7 @@ namespace FrontEnd
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            Fachada f = Fachada.getInstancia();
+            f = Fachada.getInstancia();
             Cliente cliente = new Cliente();
             cliente.Cpf = Convert.ToInt32(TextBoxCpf.Text);
             cliente.Rg = Convert.ToInt32(TextBoxRg.Text);

@@ -50,28 +50,27 @@
     <Compile Include="Basicas\Vacina.cs" />
     <Compile Include="Basicas\Vacinacao.cs" />
     <Compile Include="Basicas\Veterinario.cs" />
-<<<<<<< HEAD
     <Compile Include="Dados\ClienteDao.cs" />
     <Compile Include="Dados\ClienteDaoImp.cs" />
+    <Compile Include="Dados\EspecieDao.cs" />
+    <Compile Include="Dados\EspecieDaoImp.cs" />
     <Compile Include="Erro\GeralException.cs" />
     <Compile Include="Negocio\ClienteController.cs" />
-=======
     <Compile Include="Dados\VacinaDao.cs" />
     <Compile Include="Dados\VacinaDaoImp.cs" />
     <Compile Include="Erro\GeralException.cs" />
     <Compile Include="Negocio\VacinaController.cs" />
->>>>>>> 5e024d442ebba62e39cae65ff6b86dd761637753
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Erro\ConexaoException.cs" />
     <Compile Include="Erro\DaoException.cs" />
-    <Compile Include="Fachada.cs" />
+    <Compile Include="Util\Fachada.cs" />
     <Compile Include="Dados\UsuarioDao.cs" />
     <Compile Include="Dados\UsuarioDaoImp.cs" />
     <Compile Include="Negocio\UsuarioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Util\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
