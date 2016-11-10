@@ -11,10 +11,10 @@ namespace Backend.Util
     public class Conexao
     {
 
-        public const String usuario = "admin";
-        public const String senha = "admin";
+        public const String usuario = "sa";
+        public const String senha = "123456";
         public const String banco = "petweb";
-        public const String host = @"TI01\SQLEXPRESS";
+        public const String host = @"MOISES-PC\SQLEXPRESS";
 
         public String connectionString = "";
 

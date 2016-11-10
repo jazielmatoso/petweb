@@ -1,5 +1,5 @@
-﻿using Backend;
-using Backend.Basicas;
+﻿
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,21 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Backend.Erro;
+using Backend;
+
+
+
 
 namespace FrontEnd
 {
-    public partial class AlterarUsuario : Form
+    public partial class AlterarUsuarioView : Form
     {
+        public fachada f;
 
         private Usuario usuario = null;
 
-        public AlterarUsuario()
+        public AlterarUsuarioView()
         {
             InitializeComponent();
         }
 
-        public AlterarUsuario(Usuario usuario)
+        public AlterarUsuarioView(Usuario usuario)
         {
 
             InitializeComponent();
@@ -45,7 +49,7 @@ namespace FrontEnd
             string msg = "";
             try {
 
-                Fachada f = new Fachada();
+                 f.getInstancia();
 
                 string nome = this.tNomeUsuario.Text;
                 if (!usuario.Nome.Equals(nome))

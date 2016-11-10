@@ -11,27 +11,27 @@ using Backend.Erro;
 
 namespace Backend.Negocio
 {
-    public class UsuarioController
+    public class VacinaController
     {
 
-        private UsuarioDaoImp usuarioDao = null;
+        private VacinaDaoImp VacinaDao = null;
 
-        public UsuarioController() { 
+        public VacinaController() { 
             
 
 
         }
 
         
-        public void cadastrar(Usuario usuario) {
+        public void cadastrar(Vacina vacina) {
 
             try {
-                this.usuarioDao = new UsuarioDaoImp();
-                if (usuario.Equals(null) || usuario.Equals(""))
+                this.VacinaDao = new VacinaDaoImp();
+                if (vacina.Equals(null) || vacina.Equals(""))
                 {
-                    throw new Exception("Objeto Usuario Nulo");
+                    throw new Exception("Não existe vacina no estoque");
                 }
-                this.usuarioDao.insertUsuario(usuario);
+                this.VacinaDao.inserirVacina(vacina);
              
 
              }catch(ConexaoException c){
@@ -42,19 +42,18 @@ namespace Backend.Negocio
 
         }
 
-   
 
-        public void alterar(Usuario usuario)
+        public void alterar(Vacina vacina)
         {
 
             try
             {
-                this.usuarioDao = new UsuarioDaoImp();
-                if (usuario.Equals(null) || usuario.Equals(""))
+                this.VacinaDao = new VacinaDaoImp();
+                if (vacina.Equals(null) || vacina.Equals(""))
                 {
                     throw new Exception("Objeto Usuario Nulo");
                 }
-                this.usuarioDao.alterarUsuario(usuario);
+                this.VacinaDao.alterarVacina(vacina);
 
 
             }

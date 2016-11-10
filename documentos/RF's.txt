@@ -28,9 +28,9 @@ RF010 -> Manter Espécie: O sistema deverá permitir que o veterinário mantenha o 
 =========================================================================================
 Requisitos Não Funcionais: 
 
-RFN001: Plataforma de Desenvolvimento: A Aplicação deverá ser executada na web.
+RFN001: Plataforma de Desenvolvimento: A Aplicação deverá ser executada no próprio computador(plataforma desktop).
 
-RFN002: Linguagem de Desenvolvimento:
+RFN002: Linguagem de Desenvolvimento: c#
 
 RFN003: Prazo de Desenvolvimento: 
 

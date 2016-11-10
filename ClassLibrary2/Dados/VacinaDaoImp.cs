@@ -10,43 +10,39 @@ using Backend.Erro;
 
 namespace Backend.Dados
 {
-    public class UsuarioDaoImp : UsuarioDao
+    public class VacinaDaoImp : VacinaDao
     {
         Conexao conn;
 
-        public UsuarioDaoImp()
+        public VacinaDaoImp()
         {
             this.conn = new Conexao();
         }
 
 
-        public void insertUsuario(Usuario usuario)
+        public void inserirVacina(Vacina vacina)
         {
             try
             {
 
                 this.conn.openConnection();
-
-                string sql = "INSERT INTO usuario (nome,login,senha,telefone)  VALUES (@nome,@login,@senha,@telefone)";
+                string sql = "INSERT INTO vacina (nome,descricao,data_cadastro) VALUES (@nome,@descricao,@data_cadastro)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@nome", usuario.Nome);
-                cmd.Parameters.AddWithValue("@login", usuario.Login);
-                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
-                cmd.Parameters.AddWithValue("@telefone", usuario.Telefone);
+
+                //cmd.Parameters.AddWithValue("@nome,@descricao,@data_cadastro", vacina.Nome, vacina.Descricao);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
 
 
             }
-            catch (SqlException ce)
+            catch (SqlException e)
             {
 
-                throw new DaoException("Erro ao Inserir Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Inserir a vacina :" + e.Message);
             }
             
                 
@@ -54,30 +50,30 @@ namespace Backend.Dados
 
 
 
-        public void alterarUsuario(Usuario usuario)
+        public void alterarVacina(Vacina vacina)
         {
             try
             {
 
                 this.conn.openConnection();
-                string sql = "UPDATE usuario SET nome = @nome WHERE id = @id";
+                string sql = "UPDATE vacina SET nome = @nome,descricao = @descricao,data_cadastro = @data_cadastro WHERE id = @id";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@nome", usuario.Nome);
-                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
+                cmd.Parameters.AddWithValue("@nome", vacina.Nome);
+                cmd.Parameters.AddWithValue("@id", vacina.CodVacina);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
 
 
             }
-            catch (SqlException ce)
+            catch (SqlException e)
             {
 
-                throw new DaoException("Erro ao Alterar Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Alterar a vacina :" + e.Message);
             }
 
 
@@ -96,7 +92,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
+                cmd.Parameters.AddWithValue("@id", usuario.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -120,13 +116,13 @@ namespace Backend.Dados
                 this.conn.openConnection();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select id,nome,telefone from usuario";
+                cmd.CommandText = "Select id,nome from usuario";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.CodUsuario = reader.GetInt32(reader.GetOrdinal("id"));
+                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
                     usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
                     lUsuario.Add(usuario);
                 }

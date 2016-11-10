@@ -4,12 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Backend.Erro
 {
     public class GeralException : Exception
     {
 
-        public GeralException(string msg) : base(msg)
+        public GeralException() 
+            : base()
+            
+        {
+
+        }
+
+        
+        public GeralException(string msg) 
+            : base(msg)
+
         {
 
         }
