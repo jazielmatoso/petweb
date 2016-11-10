@@ -8,9 +8,10 @@ namespace Backend.Basicas
 {
     public class Usuario
     {
-        private int codUsuario;
+        private int id;
         private string nome;
         private string telefone;
+        private string email;
         private string login;
         private string senha;
         private Permissao permissao;
@@ -25,17 +26,23 @@ namespace Backend.Basicas
         }
 
 
-        public int CodUsuario
+        public int Id
         {
             get
             {
-                return codUsuario;
+                return id;
             }
 
             set
             {
-                codUsuario = value;
+                id = value;
             }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
         public string Nome

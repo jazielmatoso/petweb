@@ -8,27 +8,27 @@ namespace Backend.Basicas
 {
     public class Periodicidade
     {
-        private int codPeriodicidade;
+        private int id;
         private int qtdeDias;
 
         public Periodicidade() { }
 
-        public Periodicidade(int codPeriodicidade, int qtdeDias)
+        public Periodicidade(int id, int qtdeDias)
         {
-            this.codPeriodicidade = codPeriodicidade;
+            this.id = id;
             this.qtdeDias = qtdeDias;
         }
 
-        public int CodPeriodicidade
+        public int Id
         {
             get
             {
-                return codPeriodicidade;
+                return id;
             }
 
             set
             {
-                codPeriodicidade = value;
+                id = value;
             }
         }
 

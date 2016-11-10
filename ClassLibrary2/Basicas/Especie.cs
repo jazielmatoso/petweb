@@ -8,27 +8,39 @@ namespace Backend.Basicas
 {
     public class Especie
     {
-        private int codEspecie;
+        private int id;
         private string nome;
         private string descricao;
+        private DateTime dataCadastro;
 
-        public Especie(int codEspecie, string nome, string descricao)
-        {
-            this.codEspecie = codEspecie;
-            this.nome = nome;
-            this.descricao = descricao;
+     
+
+
+        public Especie() {
+            
         }
 
-        public int CodEspecie
+
+
+        public Especie(int id, string nome, string descricao, DateTime dataCadastro)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.descricao = descricao;
+            this.dataCadastro = dataCadastro;
+        
+        }
+
+        public int Id
         {
             get
             {
-                return codEspecie;
+                return id;
             }
 
             set
             {
-                codEspecie = value;
+                id = value;
             }
         }
 
@@ -56,6 +68,13 @@ namespace Backend.Basicas
             {
                 descricao = value;
             }
+        }
+
+
+        public DateTime DataCadastro
+        {
+            get { return dataCadastro; }
+            set { dataCadastro = value; }
         }
 
       

@@ -12,30 +12,37 @@ namespace Backend
     {
 
         public UsuarioController usuarioC;
-
+        public VacinacaoController vacinacaoC;
         public Fachada() {
-             usuarioC = new UsuarioController();  
+           this.usuarioC = new UsuarioController();
+           this.vacinacaoC = new VacinacaoController();
         }
 
         public void cadastrarUsuario(Usuario usuario) {
-            usuarioC.cadastrar(usuario);
+            this.usuarioC.cadastrar(usuario);
         }
 
         public List<Usuario> listarUsuario()
         {
-            return usuarioC.listar();
+            return this.usuarioC.listar();
         }
 
 
         public void alterarUsuario(Usuario usuario)
         {
-            usuarioC.alterar(usuario);
+            this.usuarioC.alterar(usuario);
         }
 
 
         public void deletarUsuario(Usuario usuario)
         {
-            usuarioC.deletar(usuario);
+            this.usuarioC.deletar(usuario);
+        }
+
+
+        public void cadastrarVacinacao(Vacinacao vacinacao) {
+
+            this.vacinacaoC.cadastrar(vacinacao);
         }
 
     }

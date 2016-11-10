@@ -9,33 +9,38 @@ namespace Backend.Basicas
     public class Vacina
     {
 
-        private int codVacina;
+        private int id;
         private string nome;
         private string descricao;
         private Doenca doenca;
         private Periodicidade periodicidade;
 
 
-        public Vacina(int codVacina, string nome, string descricao, Doenca doenca, Periodicidade periodicidade)
+        public Vacina() {
+            this.doenca = new Doenca();
+            this.periodicidade = new Periodicidade();
+        }
+
+        public Vacina(int id, string nome, string descricao, Doenca doenca, Periodicidade periodicidade)
         {
-            this.codVacina = codVacina;
+            this.id = id;
             this.nome = nome;
             this.descricao = descricao;
             this.doenca = doenca;
             this.Periodicidade = periodicidade;
         }
 
-          
-        public int CodVacina
+
+        public int Id
         {
             get
             {
-                return codVacina;
+                return id;
             }
 
             set
             {
-                codVacina = value;
+                id = value;
             }
         }
 

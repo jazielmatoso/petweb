@@ -17,8 +17,6 @@ namespace Backend.Basicas
         public Veterinario(string crmv)
         {
             this.crmv = crmv;
-           
-
         }
 
         public string Crmv

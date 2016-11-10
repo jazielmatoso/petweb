@@ -3,36 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Backend.Basicas;
 
 namespace Backend.Basicas
 {
     public class Vacinacao
     {
-        private int codVacinacao;
+        private int id;
         private DateTime dataVacinacao;
         private Animal animal;
         private Veterinario veterinario;
+        private List<DoseVacina> lDoseVacina;
 
-        public Vacinacao() { }
 
-        public Vacinacao(int codVacinacao, DateTime dataVacinacao, Animal animal, Veterinario veterinario)
+
+        public Vacinacao() { 
+                
+            this.animal = new Animal();
+            this.veterinario = new Veterinario();
+            this.lDoseVacina = new List<DoseVacina>();
+    
+
+         }
+
+        public Vacinacao(int id, DateTime dataVacinacao, Animal animal, Veterinario veterinario, List<DoseVacina> lDoseVacina)
         {
-            this.codVacinacao = codVacinacao;
+            this.id = id;
             this.dataVacinacao = dataVacinacao;
             this.animal = animal;
             this.Veterinario = veterinario;
+            this.lDoseVacina = lDoseVacina;
+        
         }
 
-        public int CodVacinacao
+        public int Id
         {
             get
             {
-                return codVacinacao;
+                return id;
             }
 
             set
             {
-                codVacinacao = value;
+                id = value;
             }
         }
 
@@ -72,6 +85,25 @@ namespace Backend.Basicas
             set
             {
                 veterinario = value;
+            }
+        }
+
+
+        public List<DoseVacina> LDoseVacina
+        {
+            get
+            { 
+                
+                return lDoseVacina; 
+            
+            }
+
+
+            set 
+            { 
+                
+                lDoseVacina = value; 
+            
             }
         }
     }

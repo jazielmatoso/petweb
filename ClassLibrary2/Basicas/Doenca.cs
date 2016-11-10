@@ -8,7 +8,7 @@ namespace Backend.Basicas
 {
    public class Doenca
     {
-        private int codDoenca;
+        private int id;
         private string nome;
         private string descricao;
 
@@ -16,23 +16,23 @@ namespace Backend.Basicas
         public Doenca() { }
             
             
-        public Doenca(int codDoenca, string nome, string descricao)
+        public Doenca(int id, string nome, string descricao)
         {
-            this.codDoenca = codDoenca;
+            this.id = id;
             this.nome = nome;
             this.descricao = descricao;
         }
 
-        public int CodDoenca
+        public int Id
         {
             get
             {
-                return codDoenca;
+                return id;
             }
 
             set
             {
-                codDoenca = value;
+                id = value;
             }
         }
 

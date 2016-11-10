@@ -9,40 +9,51 @@ namespace Backend.Basicas
     public class Animal
     {
 
-        private int codAnimal;
+        private int id;
         private int idade;
         private string nome;
         private float peso;
         private string cor;
         private string raca;
+        private Especie especie;
         private DateTime dataCadastro;
         
 
-        public Animal() { }
+        public Animal() {
 
-        public Animal(int codAnimal, int idade, string nome, float peso, string cor, string raca, DateTime dataCadastro)
+            this.especie = new Especie();
+        }
+
+        public Animal(int id, int idade, string nome, float peso, string cor, string raca, Especie especie,DateTime dataCadastro)
         {
-            this.codAnimal = codAnimal;
+            this.id = id;
             this.idade = idade;
             this.nome = nome;
             this.peso = peso;
             this.cor = cor;
             this.raca = raca;
+            this.especie = especie;
             this.dataCadastro = dataCadastro;
             
         }
 
-        public int CodAnimal
+        public int Id
         {
             get
             {
-                return codAnimal;
+                return id;
             }
 
             set
             {
-                codAnimal = value;
+                id = value;
             }
+        }
+
+        public Especie Especie
+        {
+            get { return especie; }
+            set { especie = value; }
         }
 
         public int Idade

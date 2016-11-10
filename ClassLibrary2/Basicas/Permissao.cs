@@ -9,23 +9,23 @@ namespace Backend.Basicas
     public class Permissao
     {
 
-        private int codPermissao;
+        private int id;
         private string nome;
         private string descricao;
         private DateTime dataCadastro;
 
 
 
-        public int CodPermissao
+        public int Id
         {
             get
             {
-                return codPermissao;
+                return id;
             }
 
             set
             {
-                codPermissao = value;
+                id = value;
             }
         }
 

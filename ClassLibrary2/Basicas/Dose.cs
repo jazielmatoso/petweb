@@ -8,34 +8,43 @@ namespace Backend.Basicas
 {
     public class Dose
     {
-        private int codDose;
-        private int dosagem;
-        private int numDose;
+        private int id;
+        private string dosagem;
+        private float numero;
+        private DateTime dataCadastro;
 
+       
 
         public Dose() { }
 
-        public Dose(int codDose, int dosagem, int numDose)
+        public Dose(int id, string dosagem, float numero, DateTime dataCadastro )
         {
-            this.codDose = codDose;
+            this.id = id;
             this.dosagem = dosagem;
-            this.numDose = numDose;
+            this.numero = numero;
+            this.dataCadastro = dataCadastro;
         }
 
-        public int CodDose
+        public int Id
         {
             get
             {
-                return codDose;
+                return id;
             }
 
             set
             {
-                codDose = value;
+                id = value;
             }
         }
 
-        public int Dosagem
+        public DateTime DataCadastro
+        {
+            get { return dataCadastro; }
+            set { dataCadastro = value; }
+        }
+
+        public string Dosagem
         {
             get
             {
@@ -48,16 +57,16 @@ namespace Backend.Basicas
             }
         }
 
-        public int NumDose
+        public float Numero
         {
             get
             {
-                return numDose;
+                return numero;
             }
 
             set
             {
-                numDose = value;
+                numero = value;
             }
         }
     }

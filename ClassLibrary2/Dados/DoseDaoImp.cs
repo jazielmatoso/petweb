@@ -1,36 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Backend.Util;
 using Backend.Basicas;
+using System.Data.SqlClient;
 using Backend.Erro;
 
 namespace Backend.Dados
 {
-    public class UsuarioDaoImp : UsuarioDao
+    public class DoseDaoImp : DoseDao
     {
+
         Conexao conn;
 
-        public UsuarioDaoImp()
+        public DoseDaoImp()
         {
             this.conn = new Conexao();
         }
 
 
-        public void insertUsuario(Usuario usuario)
+        public void insertDose(Dose dose)
         {
             try
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO usuario (nome) VALUES (@nome)";
+                string sql = "INSERT INTO dose (dosagem,numero,data_cadastro) VALUES (@dosagem , @numero , NOW())";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@nome", usuario.Nome);
+
+                cmd.Parameters.AddWithValue("@nome", dose.Dosagem);
+                cmd.Parameters.AddWithValue("@numero", dose.Numero);
+
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
 
@@ -39,7 +43,7 @@ namespace Backend.Dados
             catch (SqlException ce)
             {
 
-                throw new DaoException("Erro ao Inserir Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Inserir Dose :" + ce.Message);
             }
             
                 
@@ -47,20 +51,20 @@ namespace Backend.Dados
 
 
 
-        public void alterarUsuario(Usuario usuario)
+        public void alterarDose(Dose dose)
         {
             try
             {
 
                 this.conn.openConnection();
-                string sql = "UPDATE usuario SET nome = @nome WHERE id = @id";
-                //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
+                string sql = "UPDATE dose SET dosagem = @dosagem , numero = @numero WHERE id = @id";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@nome", usuario.Nome);
-                cmd.Parameters.AddWithValue("@id", usuario.Id);
+                cmd.Parameters.AddWithValue("@dosagem", dose.Dosagem);
+                cmd.Parameters.AddWithValue("@numero", dose.Numero);
+                cmd.Parameters.AddWithValue("@id", dose.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -70,26 +74,25 @@ namespace Backend.Dados
             catch (SqlException ce)
             {
 
-                throw new DaoException("Erro ao Alterar Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Alterar Dose :" + ce.Message);
             }
 
 
         }
 
 
-        public void deletarUsuario(Usuario usuario)
+        public void deletarDose(Dose dose)
         {
             try
             {
 
                 this.conn.openConnection();
-                string sql = "DELETE FROM usuario WHERE id = @id";
-                //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
+                string sql = "DELETE FROM dose WHERE id = @id";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-
-                cmd.Parameters.AddWithValue("@id", usuario.Id);
+                    
+                cmd.Parameters.AddWithValue("@id", dose.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -97,45 +100,47 @@ namespace Backend.Dados
 
             }catch (SqlException ce){
 
-                throw new DaoException("Erro ao Alterar Usuario :" + ce.Message);
+                throw new DaoException("Erro ao deletar dose :" + ce.Message);
             }
 
 
         }
 
 
-        public List<Usuario> listUsuario() { 
+        public List<Dose> listDose() { 
         
-            List<Usuario> lUsuario = new List<Usuario>();
+            List<Dose> lDose = new List<Dose>();
             
             try
             {
                 this.conn.openConnection();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Select id,nome from usuario";
+                cmd.CommandText = "Select id,nome from dose";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
-                    usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
-                    lUsuario.Add(usuario);
+                    Dose dose = new Dose();
+                    dose.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                    dose.Dosagem = reader.GetString(reader.GetOrdinal("dosagem"));
+                    dose.Numero = reader.GetFloat(reader.GetOrdinal("numero"));
+
+                    lDose.Add(dose);
                 }
                 this.conn.closeConnection();
             }
             catch (SqlException ce)
             {
 
-                throw new DaoException("Erro ao listar Usuarios :" + ce.Message);
+                throw new DaoException("Erro ao listar Doses :" + ce.Message);
             }
 
-            return lUsuario;
+            return lDose;
 
 
 
         }
+
     }
 }
-
