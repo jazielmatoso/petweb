@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using System.Data.SqlClient;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +12,12 @@ using Backend.Erro;
 
 namespace Backend.Dados
 {
-    class EspecieDaoImp : EspecieDao
-    {
+    public class EspecieDaoImp  : EspecieDao {
+
         Conexao conn;
 
 
-        public EspecieDaoImp()
-        {
+        public void EsspecieDaoImp(){
 
             this.conn = new Conexao();
         }
@@ -43,26 +45,24 @@ namespace Backend.Dados
                     especie.Nome = reader.GetString(reader.GetOrdinal("nome"));
                     especie.Descricao = reader.GetString(reader.GetOrdinal("descricao"));
                     especie.DataCadastro = reader.GetDateTime(reader.GetOrdinal("data_cadastro"));
-
-
-
                 }
                 this.conn.closeConnection();
 
                 return especie;
-			}
-			catch (SqlException ce)
-            {	
-				
-				 throw new DaoException("Erro ao Alterar Especie :" + ce.Message);
+            }
+            catch (SqlException ce)
+            {
+
+                throw new DaoException("Erro ao Alterar Especie :" + ce.Message);
             }
 
 
         }
-		
-				
-				
-				
+
+
+
+        
+
         public void inserirEspecie(Especie especie)
         {
             try
@@ -74,11 +74,9 @@ namespace Backend.Dados
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-
-
-                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
-                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@nome", especie.Nome);
+                cmd.Parameters.AddWithValue("@descricao", especie.Descricao);
+                //cmd.CommandType = CommandType.Text;
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -107,10 +105,10 @@ namespace Backend.Dados
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id_especie", txtId.Text);
-                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
-                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@id_especie", especie.Id);
+                cmd.Parameters.AddWithValue("@nome", especie.Nome);
+                cmd.Parameters.AddWithValue("@descricao", especie.Descricao);
+                //cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
 
@@ -137,9 +135,7 @@ namespace Backend.Dados
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-                cmd.CommandType = CommandType.Text;
-
-                cmd.Parameters.AddWithValue("@especie_id", txtId.Text);
+                cmd.Parameters.AddWithValue("@especie_id", especie.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -159,19 +155,10 @@ namespace Backend.Dados
         }
 
 
-
-
-
-    
-
-
-  
-
-
-        public List<Usuario> listarEspecie()
+        public List<Especie> listarEspecie()
         {
 
-            Listar<Especie> lEspecie = new List<Especie>();
+            List<Especie> lEspecie = new List<Especie>();
 
             try
             {
@@ -184,9 +171,9 @@ namespace Backend.Dados
                 while (reader.Read())
                 {
                     Especie especie = new Especie();
-                    especie.CodEspecie = reader.GetInt32(reader.GetOrdinal("especie_id"));
+                    especie.Id = reader.GetInt32(reader.GetOrdinal("especie_id"));
                     especie.Nome = reader.GetString(reader.GetOrdinal("nome"));
-                    especie.descricao = reader.GetString(reader.GetOrdinal("descricao"));
+                    especie.Descricao = reader.GetString(reader.GetOrdinal("descricao"));
 
                     lEspecie.Add(especie);
                 }
@@ -206,3 +193,4 @@ namespace Backend.Dados
 
     }
 }
+

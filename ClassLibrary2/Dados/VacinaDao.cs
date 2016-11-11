@@ -13,12 +13,16 @@ namespace Backend.Dados
     {
 
 
-        List<Vacina> listVacina();
         
+        List<Vacina> listVacina();
+
+       
         void inserirVacina(Vacina vacina);
 
+        
         void alterarVacina(Vacina vacina);
 
+        
         void deletarVacina(Vacina vacina);
 
 

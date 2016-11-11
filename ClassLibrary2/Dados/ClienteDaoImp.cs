@@ -31,7 +31,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", cliente.Cpf);
-                cmd.Parameters.AddWithValue("@id", cliente.cd_usuario);
+                cmd.Parameters.AddWithValue("@id", cliente.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -57,7 +57,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", cliente.cd_usuario);
+                cmd.Parameters.AddWithValue("@id", cliente.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -83,7 +83,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@usuario_id", cliente.cd_usuario);
+                cmd.Parameters.AddWithValue("@usuario_id", cliente.Id);
                 cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 cmd.Parameters.AddWithValue("@rg", cliente.Rg);
 
@@ -117,7 +117,7 @@ namespace Backend.Dados
                     while (reader.Read())
                     {
                         Cliente cliente = new Cliente();
-                        cliente.CodUsuario = reader.GetInt32(reader.GetOrdinal("usuario_id"));
+                        cliente.Id= reader.GetInt32(reader.GetOrdinal("usuario_id"));
                         cliente.Cpf = reader.GetInt32(reader.GetOrdinal("cpf"));
                         cliente.Rg = reader.GetInt32(reader.GetOrdinal("rg"));
                         lcliente.Add(cliente);

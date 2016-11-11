@@ -124,8 +124,8 @@ namespace Backend.Dados
          
 
         }
-       
-        private void insertDoseVacina(Vacinacao vacinacao)
+
+        public void insertDoseVacina(Vacinacao vacinacao)
         {
             try
             {
@@ -162,7 +162,8 @@ namespace Backend.Dados
 
         }
 
-        private void updateDoseVacina(Vacinacao vacinacao) {
+        public void updateDoseVacina(Vacinacao vacinacao)
+        {
 
             try
             {

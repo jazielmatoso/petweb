@@ -10,17 +10,15 @@ namespace Backend.Erro
     public class GeralException : Exception
     {
 
-        public GeralException() 
+        public GeralException()
             : base()
-            
         {
 
         }
 
-        
-        public GeralException(string msg) 
-            : base(msg)
 
+        public GeralException(string msg)
+            : base(msg)
         {
 
         }

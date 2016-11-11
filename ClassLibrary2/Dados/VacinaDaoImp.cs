@@ -49,7 +49,6 @@ namespace Backend.Dados
         }
 
 
-
         public void alterarVacina(Vacina vacina)
         {
             try
@@ -63,8 +62,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", vacina.Nome);
-                cmd.Parameters.AddWithValue("@id", vacina.CodVacina);
-
+                cmd.Parameters.AddWithValue("@id", vacina.Id);
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
 
@@ -80,19 +78,19 @@ namespace Backend.Dados
         }
 
 
-        public void deletarUsuario(Usuario usuario)
+        public void deletarVacina(Vacina vacina)
         {
             try
             {
 
                 this.conn.openConnection();
-                string sql = "DELETE FROM usuario WHERE id = @id";
+                string sql = "DELETE FROM vacina WHERE id = @id";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", usuario.Id);
+                cmd.Parameters.AddWithValue("@id", vacina.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -100,41 +98,41 @@ namespace Backend.Dados
 
             }catch (SqlException ce){
 
-                throw new DaoException("Erro ao Alterar Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Alterar Vacina :" + ce.Message);
             }
 
 
         }
 
 
-        public List<Usuario> listUsuario() { 
+        public List<Vacina> listVacina() { 
         
-            List<Usuario> lUsuario = new List<Usuario>();
+            List<Vacina> lVacina = new List<Vacina>();
             
             try
             {
                 this.conn.openConnection();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Select id,nome from usuario";
+                cmd.CommandText = "Select id,nome from vacina";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
-                    usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
-                    lUsuario.Add(usuario);
+                    Vacina vacina = new Vacina();
+                    vacina.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                    vacina.Nome = reader.GetString(reader.GetOrdinal("nome"));
+                    lVacina.Add(vacina);
                 }
                 this.conn.closeConnection();
             }
             catch (SqlException ce)
             {
 
-                throw new DaoException("Erro ao listar Usuarios :" + ce.Message);
+                throw new DaoException("Erro ao listar Vacinas :" + ce.Message);
             }
 
-            return lUsuario;
+            return lVacina;
 
 
 
