@@ -54,11 +54,29 @@
     <Compile Include="AlterarUsuarioView.Designer.cs">
       <DependentUpon>AlterarUsuarioView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastrarAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarAnimal.Designer.cs">
+      <DependentUpon>CadastrarAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarCor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarCor.Designer.cs">
+      <DependentUpon>CadastrarCor.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarEspecieView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CadastrarEspecieView.Designer.cs">
       <DependentUpon>CadastrarEspecieView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarRaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarRaca.Designer.cs">
+      <DependentUpon>CadastrarRaca.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -83,11 +101,20 @@
     <EmbeddedResource Include="AlterarUsuarioView.resx">
       <DependentUpon>AlterarUsuarioView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarAnimal.resx">
+      <DependentUpon>CadastrarAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarClienteView.resx">
       <DependentUpon>CadastrarClienteView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarCor.resx">
+      <DependentUpon>CadastrarCor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarEspecieView.resx">
       <DependentUpon>CadastrarEspecieView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarRaca.resx">
+      <DependentUpon>CadastrarRaca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
