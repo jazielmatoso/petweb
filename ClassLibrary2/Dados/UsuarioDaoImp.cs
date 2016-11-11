@@ -67,7 +67,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
-                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
+                cmd.Parameters.AddWithValue("@id", usuario.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -96,7 +96,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", usuario.CodUsuario);
+                cmd.Parameters.AddWithValue("@id", usuario.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -126,7 +126,7 @@ namespace Backend.Dados
                 while (reader.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.CodUsuario = reader.GetInt32(reader.GetOrdinal("id"));
+                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
                     usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
                     lUsuario.Add(usuario);
                 }

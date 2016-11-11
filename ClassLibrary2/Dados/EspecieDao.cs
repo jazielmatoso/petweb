@@ -7,7 +7,7 @@ using Backend.Basicas;
 
 namespace Backend.Dados
 {
-    public interface EspecieDao
+    interface EspecieDao
     {
         List<Especie> listarEspecie();
 

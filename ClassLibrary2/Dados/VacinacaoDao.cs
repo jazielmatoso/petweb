@@ -10,14 +10,15 @@ namespace Backend.Dados
     interface VacinacaoDao
     {
 
-        public void insertVacinacao(Vacinacao vacinacao);
-        public void updateVacinacao(Vacinacao vacinacao);
-        public void deleteVacinacao(Vacinacao vacinacao);
-        private void insertDoseVacina(Vacinacao vacinacao);
-        private void updateDoseVacina(Vacinacao vacinacao);
-        public void deleteDoseVacina(List<DoseVacina> lDoseVacina);
-        public List<Vacinacao> listVacinacao();
-        public List<DoseVacina> getDoseVacina(Vacinacao vacinacao);
+        void insertVacinacao(Vacinacao vacinacao);
+        
+        void updateVacinacao(Vacinacao vacinacao);
+        void deleteVacinacao(Vacinacao vacinacao);
+        void insertDoseVacina(Vacinacao vacinacao);
+        void updateDoseVacina(Vacinacao vacinacao);
+        void deleteDoseVacina(List<DoseVacina> lDoseVacina);
+        List<Vacinacao> listVacinacao();
+        List<DoseVacina> getDoseVacina(Vacinacao vacinacao);
         
     }
 }

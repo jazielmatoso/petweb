@@ -14,7 +14,7 @@ namespace Backend.Negocio
     public class VacinaController
     {
 
-        private VacinaDaoImp VacinaDao = null;
+        private VacinaDaoImp vacinaDao = null;
 
         public VacinaController() { 
             
@@ -26,12 +26,12 @@ namespace Backend.Negocio
         public void cadastrar(Vacina vacina) {
 
             try {
-                this.VacinaDao = new VacinaDaoImp();
+                this.vacinaDao = new VacinaDaoImp();
                 if (vacina.Equals(null) || vacina.Equals(""))
                 {
                     throw new Exception("Não existe vacina no estoque");
                 }
-                this.VacinaDao.inserirVacina(vacina);
+                this.vacinaDao.inserirVacina(vacina);
              
 
              }catch(ConexaoException c){
@@ -48,12 +48,12 @@ namespace Backend.Negocio
 
             try
             {
-                this.VacinaDao = new VacinaDaoImp();
+                this.vacinaDao = new VacinaDaoImp();
                 if (vacina.Equals(null) || vacina.Equals(""))
                 {
-                    throw new Exception("Objeto Usuario Nulo");
+                    throw new Exception("Objeto Vacina Nulo");
                 }
-                this.VacinaDao.alterarVacina(vacina);
+                this.vacinaDao.alterarVacina(vacina);
 
 
             }
@@ -69,17 +69,17 @@ namespace Backend.Negocio
         }
 
 
-        public void deletar(Usuario usuario)
+        public void deletar(Vacina vacina)
         {
 
             try
             {
-                this.usuarioDao = new UsuarioDaoImp();
-                if (usuario.Equals(null) || usuario.Equals(""))
+                this.vacinaDao = new VacinaDaoImp();
+                if (vacina.Equals(null) || vacina.Equals(""))
                 {
-                    throw new Exception("Objeto Usuario Nulo");
+                    throw new Exception("Objeto Vacina Nulo");
                 }
-                this.usuarioDao.deletarUsuario(usuario);
+                this.vacinaDao.deletarVacina(vacina);
 
 
             }
@@ -94,12 +94,12 @@ namespace Backend.Negocio
 
         }
 
-        public List<Usuario> listar()
+        public List<Vacina> listar()
         {
             try{
         
-                UsuarioDaoImp usuarioDao = new UsuarioDaoImp();
-                return usuarioDao.listUsuario();
+                VacinaDaoImp vacinaDao = new VacinaDaoImp();
+                return vacinaDao.listVacina();
             }catch(ConexaoException c){
                 throw new GeralException(c.Message);
             }catch(DaoException d){

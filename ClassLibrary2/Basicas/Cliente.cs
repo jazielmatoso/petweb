@@ -11,8 +11,7 @@ namespace Backend.Basicas
 
         private int cpf;
         private int rg;
-        private Usuario cod_usuario;
-
+        
         public int Cpf
         {
             get
@@ -38,17 +37,6 @@ namespace Backend.Basicas
                 rg = value;
             }
         }
-        public Usuario cd_usuario
-        {
-            get
-            {
-                return cd_usuario;
-            }
-
-            set
-            {
-                cd_usuario = value;
-            }
-        }
+        
     }
 }
