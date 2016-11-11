@@ -1,26 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Backend.Basicas;
-using Backend.Util;
-using Backend.Erro;
-
-
-namespace Backend.Dados
-{
-    public class EspecieDaoImp
-    {
-
-        public Conexao conn;
-
-        public EspecieDaoImp()
-        {
-
-=======
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
