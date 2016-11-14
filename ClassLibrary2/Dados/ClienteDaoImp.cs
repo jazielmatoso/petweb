@@ -18,7 +18,51 @@ namespace Backend.Dados
         {
             this.conn = new Conexao();
         }
-        public void alterarCliente(Cliente cliente)
+
+       /* public Cliente getCliente(int ClienteId)
+        {
+
+
+            try
+            {
+                this.conn.openConnection();
+                Cliente Cliente = new Cliente();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT u.id,u.nome,u.email,u.login,u.telefone,u.data_cadastro,c.cpf,c.rg FROM cliente c  INNER JOIN usuario u ON c.usuario_id  = u.id WHERE u.id = @cliente";
+                cmd.Connection = this.conn.SqlConn;
+                cmd.Parameters.AddWithValue("@veterinario", ClienteId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    Cliente.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                    Cliente.Nome = reader.GetString(reader.GetOrdinal("nome"));
+                    Cliente.Email = reader.GetString(reader.GetOrdinal("email"));
+                    Cliente.Login = reader.GetString(reader.GetOrdinal("login"));
+                    Cliente.Telefone = reader.GetString(reader.GetOrdinal("telefone"));
+                    Cliente.Cpf = reader.GetInt32(reader.GetOrdinal("Cpf"));
+                    Cliente.Rg = reader.GetInt32(reader.GetOrdinal("Rg"));
+
+
+                }
+                this.conn.closeConnection();
+
+                return Cliente;
+            }
+            catch (SqlException ce)
+            {
+
+                throw new DaoException("Erro ao listar Veterinarios :" + ce.Message);
+            }
+
+        }*/
+
+
+
+
+
+
+         public void alterarCliente(Cliente cliente)
         {
             try
             {
@@ -31,7 +75,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", cliente.Cpf);
-                cmd.Parameters.AddWithValue("@id", cliente.Id);
+                cmd.Parameters.AddWithValue("@id", cliente.Usuario.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -57,7 +101,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", cliente.Id);
+                cmd.Parameters.AddWithValue("@id", cliente.Usuario.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -67,7 +111,7 @@ namespace Backend.Dados
             catch (SqlException ce)
             {
 
-                throw new DaoException("Erro ao Alterar Usuario :" + ce.Message);
+                throw new DaoException("Erro ao Deletar Usuario :" + ce.Message);
             }
         }
 
@@ -77,13 +121,13 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO cliente(usuario_id,cpf,rg) VALUES (@usuario_id,@cpf,@rg)";
+                string sql = "INSERT INTO cliente(usuario_id,cpf,rg) VALUES (@cliente_id,@cpf,@rg)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@usuario_id", cliente.Id);
+                cmd.Parameters.AddWithValue("@cliente_id",cliente.Usuario.Id);
                 cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 cmd.Parameters.AddWithValue("@rg", cliente.Rg);
 
@@ -117,7 +161,7 @@ namespace Backend.Dados
                     while (reader.Read())
                     {
                         Cliente cliente = new Cliente();
-                        cliente.Id= reader.GetInt32(reader.GetOrdinal("usuario_id"));
+                        cliente.Usuario.Id= reader.GetInt32(reader.GetOrdinal("usuario_id"));
                         cliente.Cpf = reader.GetInt32(reader.GetOrdinal("cpf"));
                         cliente.Rg = reader.GetInt32(reader.GetOrdinal("rg"));
                         lcliente.Add(cliente);

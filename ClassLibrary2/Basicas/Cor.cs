@@ -6,60 +6,50 @@ using System.Threading.Tasks;
 
 namespace Backend.Basicas
 {
-    public class Cliente
+  public class Cor
     {
+    
+        private int id;
+        private string nome;
+        private DateTime data_cadastro;
 
-
-        private int cpf;
-        private int rg;
-        private Usuario usuario;
-
-        public Cliente()
-        {
-        
-            this.usuario = new Usuario();
-        }
-       
-        
-        
-        public int Cpf
+        public int Id
         {
             get
             {
-                return cpf;
+                return id;
             }
 
             set
             {
-                cpf = value;
+                id = value;
             }
         }
 
-        public int Rg
+        public string Nome
         {
             get
             {
-                return rg;
+                return nome;
             }
 
             set
             {
-                rg = value;
+                nome = value;
             }
         }
-        public Usuario Usuario
+
+        public DateTime Data_cadastro
         {
             get
             {
-                return usuario;
+                return data_cadastro;
             }
 
             set
             {
-                usuario = value;
+                data_cadastro = value;
             }
         }
-
     }
 }
-

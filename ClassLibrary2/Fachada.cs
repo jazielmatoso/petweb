@@ -9,7 +9,7 @@ using Backend.Negocio;
 
 namespace Backend
 {
-    class Fachada
+  public class Fachada
     {
 
                
@@ -18,13 +18,17 @@ namespace Backend
         private UsuarioController usuarioC;
         private ClienteController clienteC;
         private EspecieController especieC;
+        private AnimalController animalC;
+        private CorController corC;
 
 
        
-        public Fachada() {
+        private Fachada() {
             usuarioC = new UsuarioController();
             clienteC = new ClienteController();
             especieC = new EspecieController();
+            animalC = new AnimalController();
+            corC = new CorController();
 
 
         }
@@ -97,7 +101,7 @@ namespace Backend
             clienteC.deletar(cliente);
         }
 
-        // Especie
+        /////////////////////////////////// Especie
 
         public void inserirEspecie(Especie especie)
         {
@@ -121,6 +125,56 @@ namespace Backend
         public void deletarEspecie(Especie especie)
         {
             especieC.deletar(especie);
+        }
+        /////////////////////Animal
+        public void inserirAnimal(Animal animal)
+        {
+
+            animalC.cadastrar(animal);
+
+        }
+
+        public List<Animal> listarAnimal()
+        {
+            return animalC.listar();
+        }
+
+
+        public void AlterarAnimal(Animal animal)
+        {
+            animalC.alterar(animal);
+        }
+
+
+        public void deletarAnimal(Animal animal)
+        {
+            animalC.deletar(animal);
+        }
+
+
+        /////////////Cor
+        public void inserirCor(Cor cor)
+        {
+
+            corC.Cadastrar(cor);
+
+        }
+
+        public List<Cor> listarCor()
+        {
+            return corC.listar();
+        }
+
+
+        public void AlterarCar(Cor cor)
+        {
+            corC.alterar(cor);
+        }
+
+
+        public void deletarCor(Cor cor)
+        {
+            corC.deletar(cor);
         }
 
     }

@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Backend;
-using Backend.Basicas.Especie;
+using Backend.Basicas;
 
 namespace FrontEnd
 {
     public partial class CadastrarEspecieView : Form
     {
-        Fachada f = new Fachada();
-        Especie especie;
+        Fachada f;
         public CadastrarEspecieView()
         {
             InitializeComponent();
@@ -23,15 +22,20 @@ namespace FrontEnd
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
 
-           f.getInstancia();
-             especie = new Especie();
-            especie.nome = txtNome.Text;
-            especie.descricao = txtDescricao.Text;
+
+            f = Fachada.getInstancia();
+            Especie especie = new Especie();
+            especie.Nome = txtNome.Text;
+            especie.Descricao = txtDescricao.Text;
             f.inserirEspecie(especie);
             MessageBox.Show("Espécie cadastrada com sucesso!");
             
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Basicas\Animal.cs" />
     <Compile Include="Basicas\Cliente.cs" />
+    <Compile Include="Basicas\Cor.cs" />
     <Compile Include="Basicas\Doenca.cs" />
     <Compile Include="Basicas\Dose.cs" />
     <Compile Include="Basicas\DoseVacina.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="Basicas\Vacinacao.cs" />
     <Compile Include="Basicas\Veterinario.cs" />
     <Compile Include="Dados\AnimalDaoImp.cs" />
+    <Compile Include="Dados\CorDao.cs" />
+    <Compile Include="Dados\CorDaoImp.cs" />
     <Compile Include="Dados\DoseDao.cs" />
     <Compile Include="Dados\DoseDaoImp.cs" />
     <Compile Include="Dados\EspecieDaoImp.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="Erro\GeralException.cs" />
     <Compile Include="Fachada.cs" />
     <Compile Include="Negocio\AnimalController.cs" />
+    <Compile Include="Negocio\CorController.cs" />
     <Compile Include="Negocio\DoseController.cs" />
     <Compile Include="Negocio\EspecieController.cs" />
     <Compile Include="Negocio\VacinacaoController.cs" />

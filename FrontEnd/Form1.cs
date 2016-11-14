@@ -37,7 +37,7 @@ namespace FrontEnd
                listView1.Items.Clear();
                foreach (Usuario usuario in this.listaUsuario)
                {
-                  ListViewItem item =  listView1.Items.Add("" + usuario.CodUsuario);
+                  ListViewItem item =  listView1.Items.Add("" + usuario.Id);
                   item.SubItems.Add(usuario.Nome);
                   item.SubItems.Add(usuario.Telefone);
                }

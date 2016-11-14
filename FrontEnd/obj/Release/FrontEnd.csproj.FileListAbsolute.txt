@@ -23,3 +23,8 @@ C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.AlterarUsuarioView.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.CadastrarClienteView.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.CadastrarEspecieView.resources
 C:\projeto\petWeb\FrontEnd\obj\Release\FrontEnd.VacinaView.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.CadastrarAnimal.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.CadastrarCor.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.CadastrarEspecieView.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.CadastrarRaca.resources
+C:\Users\Moises\Desktop\Eudes\petweb\FrontEnd\obj\Release\FrontEnd.VacinaView.resources

@@ -7,34 +7,30 @@ using Backend.Dados;
 using Backend.Basicas;
 using Backend.Erro;
 
-
-
 namespace Backend.Negocio
 {
-    public class AnimalController
+    public class CorController
     {
+        private CorDaoImp corDaoImp = null;
 
-
-        private AnimalDaoImp animalDaoImp = null;
-
-        public AnimalController()
+        public CorController()
         {
 
-            this.animalDaoImp = new AnimalDaoImp();
-            
+            this.corDaoImp = new CorDaoImp();
+
         }
 
-        public void cadastrar(Animal animal)
+        public void Cadastrar(Cor cor)
         {
 
             try
             {
-                this.animalDaoImp = new AnimalDaoImp();
-                if (animal.Equals(null) || animal.Equals(""))
+                this.corDaoImp = new CorDaoImp();
+                if (cor.Equals(null) || cor.Equals(""))
                 {
-                    throw new Exception("Objeto Animal Nulo");
+                    throw new Exception("Objeto Cor Nulo");
                 }
-                this.animalDaoImp.insertAnimal(animal);
+                this.corDaoImp.insertCor(cor);
 
 
             }
@@ -51,17 +47,17 @@ namespace Backend.Negocio
 
 
 
-        public void alterar(Animal animal)
+        public void alterar(Cor cor)
         {
 
             try
             {
-                this.animalDaoImp = new AnimalDaoImp();
-                if (animal.Equals(null) || animal.Equals(""))
+                this.corDaoImp = new CorDaoImp();
+                if (cor.Equals(null) || cor.Equals(""))
                 {
                     throw new Exception("Objeto Usuario Nulo");
                 }
-                this.animalDaoImp.alterarAnimal(animal);
+                this.corDaoImp.AlterarCor(cor);
 
 
             }
@@ -77,17 +73,17 @@ namespace Backend.Negocio
         }
 
 
-        public void deletar(Animal animal)
+        public void deletar(Cor cor)
         {
 
             try
             {
-                this.animalDaoImp = new AnimalDaoImp();
-                if (animal.Equals(null) || animal.Equals(""))
+                this.corDaoImp = new CorDaoImp();
+                if (cor.Equals(null) || cor.Equals(""))
                 {
                     throw new Exception("Objeto Animal Nulo");
                 }
-                this.animalDaoImp.deletarAnimal(animal);
+                this.corDaoImp.DeletarCor(cor);
 
 
             }
@@ -102,13 +98,13 @@ namespace Backend.Negocio
 
         }
 
-        public List<Animal> listar()
+        public List<Cor> listar()
         {
             try
             {
 
-                AnimalDaoImp animaldao = new AnimalDaoImp();
-                return animaldao.listAnimal();
+                CorDaoImp corDao = new CorDaoImp();
+                return corDao.listCor();
             }
             catch (ConexaoException c)
             {
@@ -125,5 +121,6 @@ namespace Backend.Negocio
 
 
 
-    }
+    
+}
 }

@@ -121,6 +121,7 @@
             this.ButtonInserir.TabIndex = 8;
             this.ButtonInserir.Text = "Inserir";
             this.ButtonInserir.UseVisualStyleBackColor = true;
+            this.ButtonInserir.Click += new System.EventHandler(this.ButtonInserir_Click);
             // 
             // buttonCancelar
             // 
@@ -130,6 +131,7 @@
             this.buttonCancelar.TabIndex = 9;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // label5
             // 
@@ -173,6 +175,7 @@
             this.buttonNovaEspecie.TabIndex = 14;
             this.buttonNovaEspecie.Text = "+";
             this.buttonNovaEspecie.UseVisualStyleBackColor = true;
+            this.buttonNovaEspecie.Click += new System.EventHandler(this.buttonNovaEspecie_Click);
             // 
             // ButtonNovaRaca
             // 
@@ -182,6 +185,7 @@
             this.ButtonNovaRaca.TabIndex = 15;
             this.ButtonNovaRaca.Text = "+";
             this.ButtonNovaRaca.UseVisualStyleBackColor = true;
+            this.ButtonNovaRaca.Click += new System.EventHandler(this.ButtonNovaRaca_Click);
             // 
             // label7
             // 
@@ -208,6 +212,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CadastrarAnimal
             // 
