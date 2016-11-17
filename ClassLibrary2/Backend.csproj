@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basicas\Animal.cs" />
+    <Compile Include="Basicas\Animal_Cor.cs" />
     <Compile Include="Basicas\Cliente.cs" />
+    <Compile Include="Basicas\Cliente_Animal.cs" />
     <Compile Include="Basicas\Cor.cs" />
     <Compile Include="Basicas\Doenca.cs" />
     <Compile Include="Basicas\Dose.cs" />
@@ -48,25 +50,35 @@
     <Compile Include="Basicas\Especie.cs" />
     <Compile Include="Basicas\Periodicidade.cs" />
     <Compile Include="Basicas\Permissao.cs" />
+    <Compile Include="Basicas\Raca.cs" />
     <Compile Include="Basicas\Usuario.cs" />
     <Compile Include="Basicas\Vacina.cs" />
     <Compile Include="Basicas\Vacinacao.cs" />
     <Compile Include="Basicas\Veterinario.cs" />
     <Compile Include="Dados\AnimalDaoImp.cs" />
+    <Compile Include="Dados\Animal_CorDao.cs" />
+    <Compile Include="Dados\Animal_CorDaoImp.cs" />
+    <Compile Include="Dados\Cliente_AnimalDao.cs" />
+    <Compile Include="Dados\Cliente_AnimalDaoImp.cs" />
     <Compile Include="Dados\CorDao.cs" />
     <Compile Include="Dados\CorDaoImp.cs" />
     <Compile Include="Dados\DoseDao.cs" />
     <Compile Include="Dados\DoseDaoImp.cs" />
     <Compile Include="Dados\EspecieDaoImp.cs" />
+    <Compile Include="Dados\RacaDao.cs" />
+    <Compile Include="Dados\RacaDaoImp.cs" />
     <Compile Include="Dados\VacinacaoDao.cs" />
     <Compile Include="Dados\VacinacaoDaoImp.cs" />
     <Compile Include="Dados\VeterinarioDaoImp.cs" />
     <Compile Include="Erro\GeralException.cs" />
     <Compile Include="Fachada.cs" />
     <Compile Include="Negocio\AnimalController.cs" />
+    <Compile Include="Negocio\Animal_corController.cs" />
+    <Compile Include="Negocio\Cliente_AnimalController.cs" />
     <Compile Include="Negocio\CorController.cs" />
     <Compile Include="Negocio\DoseController.cs" />
     <Compile Include="Negocio\EspecieController.cs" />
+    <Compile Include="Negocio\RacaController.cs" />
     <Compile Include="Negocio\VacinacaoController.cs" />
     <Compile Include="Dados\ClienteDao.cs" />
     <Compile Include="Dados\ClienteDaoImp.cs" />

@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Backend.Erro;
 using Backend.Dados;
 using Backend.Basicas;
+using Backend.Erro;
 
 namespace Backend.Negocio
 {
-    public class ClienteController
+    public class RacaController
     {
-        private ClienteDaoImp clienteDao = null;
+        private RacaDaoImp racaDaoimp = null;
 
-        public ClienteController()
+
+        public RacaController()
         {
 
-
+            this.racaDaoimp = new RacaDaoImp();
 
         }
 
-
-        public void cadastrar(Cliente cliente)
+        public void Cadastrar(Raca raca)
         {
 
             try
             {
-                this.clienteDao = new ClienteDaoImp();
-                if (cliente.Equals(null) || cliente.Equals(""))
+                this.racaDaoimp = new RacaDaoImp();
+                if (raca.Equals(null) || raca.Equals(""))
                 {
-                    throw new Exception("Objeto Cliente Nulo");
+                    throw new Exception("Objeto Raca Nulo");
                 }
-                this.clienteDao.insertCliente(cliente);
+                this.racaDaoimp.insertRaca(raca);
 
 
             }
@@ -48,17 +48,17 @@ namespace Backend.Negocio
 
 
 
-        public void alterar(Cliente cliente)
+        public void alterar(Raca raca)
         {
 
             try
             {
-                this.clienteDao = new ClienteDaoImp();
-                if (cliente.Equals(null) || cliente.Equals(""))
+                this.racaDaoimp = new RacaDaoImp();
+                if (raca.Equals(null) || raca.Equals(""))
                 {
-                    throw new Exception("Objeto Usuario Nulo");
+                    throw new Exception("Objeto Raca Nulo");
                 }
-                this.clienteDao.alterarCliente(cliente);
+                this.racaDaoimp.AlterarRaca(raca);
 
 
             }
@@ -74,17 +74,17 @@ namespace Backend.Negocio
         }
 
 
-        public void deletar(Cliente cliente)
+        public void deletar(Raca raca)
         {
 
             try
             {
-                this.clienteDao = new ClienteDaoImp();
-                if (cliente.Equals(null) || cliente.Equals(""))
+                this.racaDaoimp = new RacaDaoImp();
+                if (raca.Equals(null) || raca.Equals(""))
                 {
-                    throw new Exception("Objeto Usuario Nulo");
+                    throw new Exception("Objeto Raca Nulo");
                 }
-                this.clienteDao.deletarCliente(cliente);
+                this.racaDaoimp.DeletarRaca(raca);
 
 
             }
@@ -99,13 +99,13 @@ namespace Backend.Negocio
 
         }
 
-        public List<Cliente> listar()
+        public List<Raca> listar()
         {
             try
             {
 
-                ClienteDaoImp clienteDao = new ClienteDaoImp();
-                return clienteDao.listCliente();
+                RacaDaoImp racaDao = new RacaDaoImp();
+                return racaDao.listRaca();
             }
             catch (ConexaoException c)
             {

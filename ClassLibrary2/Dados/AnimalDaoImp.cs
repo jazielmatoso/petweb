@@ -70,7 +70,7 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO animal(id,nome,idade,peso,data_cadastro) VALUES (@id,@nome,@idade,@peso,NOW())";
+                string sql = "INSERT INTO animal(id,nome,idade,peso,especie_id) VALUES (@id,@nome,@idade,@peso,@especie_id)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
@@ -80,6 +80,7 @@ namespace Backend.Dados
                 cmd.Parameters.AddWithValue("@nome",animal.Nome);
                 cmd.Parameters.AddWithValue("@idade",animal.Idade);
                 cmd.Parameters.AddWithValue("@peso", animal.Peso);
+                cmd.Parameters.AddWithValue("@especie_id", animal.Especie.Id);
 
 
 

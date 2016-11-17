@@ -20,6 +20,9 @@ namespace Backend
         private EspecieController especieC;
         private AnimalController animalC;
         private CorController corC;
+        private RacaController racaC;
+        private Cliente_AnimalController cli_animC;
+        private Animal_corController ani_corC;
 
 
        
@@ -29,7 +32,9 @@ namespace Backend
             especieC = new EspecieController();
             animalC = new AnimalController();
             corC = new CorController();
-
+            racaC = new RacaController();
+            cli_animC = new Cliente_AnimalController();
+            ani_corC = new Animal_corController();
 
         }
 
@@ -176,6 +181,63 @@ namespace Backend
         {
             corC.deletar(cor);
         }
+
+        ////////////////Raca
+
+        public void insertRaca(Raca raca)
+        {
+
+            racaC.Cadastrar(raca);
+
+        }
+
+        public List<Raca> listarRaca()
+        {
+            return racaC.listar();
+        }
+
+
+        public void AlterarRaca(Raca raca)
+        {
+            racaC.alterar(raca);
+        }
+
+
+        public void deletarRaca(Raca raca)
+        {
+            racaC.deletar(raca);
+        }
+
+
+        ////////////////////////////Cliente_Animal
+
+        public void insertCliente_Animal(Cliente_Animal cliente_animal)
+        {
+
+            cli_animC.cadastrar(cliente_animal);
+
+        }
+
+        public List<Cliente_Animal> listarCliente_Animal()
+        {
+            return cli_animC.listar();
+        }
+        ////////////////////////Animal_Cor
+
+        public void insertAnimal_Cor(Animal_Cor animal_cor)
+        {
+
+            ani_corC.cadastrar(animal_cor);
+
+        }
+
+        public List<Animal_Cor> listarAnimal_cor()
+        {
+            return ani_corC.listar();
+        }
+
+
+
 
     }
 }
