@@ -14,8 +14,9 @@ namespace Backend.Dados
     {
 
         public Conexao conn;
-        
-        public AnimalDaoImp() {
+
+        public AnimalDaoImp()
+        {
 
             this.conn = new Conexao();
         }
@@ -23,46 +24,46 @@ namespace Backend.Dados
 
 
 
-       /* public Animal getAnimal(int animalId)
-        {
+        /* public Animal getAnimal(int animalId)
+         {
 
 
-            try
-            {
+             try
+             {
 
-                EspecieDaoImp especieImp = new EspecieDaoImp();
+                 EspecieDaoImp especieImp = new EspecieDaoImp();
 
-                this.conn.openConnection();
-                Animal animal = new Animal();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT id,nome FROM animal WHERE id = @animal";
-                cmd.Connection = this.conn.SqlConn;
-                cmd.Parameters.AddWithValue("@animal", animalId);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-
-
-                    animal.Id = reader.GetInt32(reader.GetOrdinal("id"));
-                    animal.Nome = reader.GetString(reader.GetOrdinal("nome"));
-                    animal.Idade = reader.GetInt32(reader.GetOrdinal("idade"));
-                    animal.Peso = reader.GetFloat(reader.GetOrdinal("peso"));
-                    int especieId = reader.GetInt32(reader.GetOrdinal("especie_id"));
-                    animal.Especie = especieImp.getEspecie(especieId);
-                    animal.DataCadastro = reader.GetDateTime(reader.GetOrdinal("data_cadastro"));
+                 this.conn.openConnection();
+                 Animal animal = new Animal();
+                 SqlCommand cmd = new SqlCommand();
+                 cmd.CommandText = "SELECT id,nome FROM animal WHERE id = @animal";
+                 cmd.Connection = this.conn.SqlConn;
+                 cmd.Parameters.AddWithValue("@animal", animalId);
+                 SqlDataReader reader = cmd.ExecuteReader();
+                 while (reader.Read())
+                 {
 
 
-                }
-                this.conn.closeConnection();
+                     animal.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                     animal.Nome = reader.GetString(reader.GetOrdinal("nome"));
+                     animal.Idade = reader.GetInt32(reader.GetOrdinal("idade"));
+                     animal.Peso = reader.GetFloat(reader.GetOrdinal("peso"));
+                     int especieId = reader.GetInt32(reader.GetOrdinal("especie_id"));
+                     animal.Especie = especieImp.getEspecie(especieId);
+                     animal.DataCadastro = reader.GetDateTime(reader.GetOrdinal("data_cadastro"));
 
-                return animal;
-            }
-            catch (SqlException ce)
-            {
 
-                throw new DaoException("Erro ao listar Animals :" + ce.Message);
-            }
-        }*/
+                 }
+                 this.conn.closeConnection();
+
+                 return animal;
+             }
+             catch (SqlException ce)
+             {
+
+                 throw new DaoException("Erro ao listar Animals :" + ce.Message);
+             }
+         }*/
 
         public void insertAnimal(Animal animal)
         {
@@ -77,8 +78,8 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@id", animal.Id);
-                cmd.Parameters.AddWithValue("@nome",animal.Nome);
-                cmd.Parameters.AddWithValue("@idade",animal.Idade);
+                cmd.Parameters.AddWithValue("@nome", animal.Nome);
+                cmd.Parameters.AddWithValue("@idade", animal.Idade);
                 cmd.Parameters.AddWithValue("@peso", animal.Peso);
                 cmd.Parameters.AddWithValue("@especie_id", animal.Especie.Id);
 
@@ -187,8 +188,8 @@ namespace Backend.Dados
 
 
             }
-
-
-
         }
+
+
+    }
 }

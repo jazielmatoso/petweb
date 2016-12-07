@@ -254,7 +254,7 @@ namespace Backend.Dados
                     vacinacao.Id = reader.GetInt32(reader.GetOrdinal("id"));
 
                     int animalId = reader.GetInt32(reader.GetOrdinal("animal_id"));
-                    vacinacao.Animal = this.animalImp.getAnimal(animalId);
+                   // vacinacao.Animal = this.animalImp.insertAnimal(animalId);
 
                     int veterinarioId = reader.GetInt32(reader.GetOrdinal("veterinario_id"));
                     vacinacao.Veterinario = this.veterinarioImp.getVeterinario(veterinarioId);

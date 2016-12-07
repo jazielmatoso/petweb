@@ -27,16 +27,18 @@ namespace Backend.Dados
 
                 this.conn.openConnection();
 
-                string sql = "INSERT INTO usuario (nome,login,senha,telefone)  VALUES (@nome,@login,@senha,@telefone)";
+                string sql = "INSERT INTO usuario (nome, email, login,senha,telefone,tipo)  VALUES (@nome, @email, @login,@senha,@telefone,@tipo)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
+                cmd.Parameters.AddWithValue("@email", usuario.Email);
                 cmd.Parameters.AddWithValue("@login", usuario.Login);
                 cmd.Parameters.AddWithValue("@senha", usuario.Senha);
                 cmd.Parameters.AddWithValue("@telefone", usuario.Telefone);
+                cmd.Parameters.AddWithValue("@tipo", usuario.Tipo);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -52,6 +54,67 @@ namespace Backend.Dados
                 
         }
 
+        public Usuario buscarUsuario(string email)
+        {
+            try
+            {
+                this.conn.openConnection();
+                string sql = "SELECT * FROM usuario WHERE email = '" + email + "'";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = this.conn.SqlConn;
+                cmd.CommandText = sql;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                Usuario usuarioEncontrado = new Usuario();
+                if(!reader.HasRows)
+                {
+                    return null;
+                }
+                reader.Read();
+                usuarioEncontrado.Id = reader.GetInt32(0);
+                this.conn.closeConnection();
+                return usuarioEncontrado;
+
+            } catch (SqlException e)
+            {
+                throw new DaoException("Error ao buscar usuário: " + e.Message);
+            }
+        }
+
+        public Usuario buscarUsuarioPorLogin(string login)
+        {
+            try
+            {
+                this.conn.openConnection();
+                string sql = "SELECT * FROM usuario WHERE login = '" + login + "'";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = this.conn.SqlConn;
+                cmd.CommandText = sql;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                Usuario usuarioEncontrado = new Usuario();
+                if (!reader.HasRows)
+                {
+                    return null;
+                }
+                reader.Read();
+                usuarioEncontrado.Id = reader.GetInt32(0);
+                usuarioEncontrado.Nome = reader.GetString(1);
+                usuarioEncontrado.Login = reader.GetString(2);
+                usuarioEncontrado.Senha = reader.GetString(3);
+                usuarioEncontrado.Email = reader.GetString(4);
+                usuarioEncontrado.Telefone = reader.GetString(5);
+                usuarioEncontrado.Tipo = (UsuarioTipo)reader.GetInt32(7);
+
+                this.conn.closeConnection();
+                return usuarioEncontrado;
+
+            }
+            catch (SqlException e)
+            {
+                throw new DaoException("Error ao buscar usuário: " + e.Message);
+            }
+        }
 
 
         public void alterarUsuario(Usuario usuario)
@@ -111,10 +174,11 @@ namespace Backend.Dados
         }
 
 
-        public List<Usuario> listUsuario() { 
-        
+        public List<Usuario> listUsuario()
+        {
+
             List<Usuario> lUsuario = new List<Usuario>();
-            
+
             try
             {
                 this.conn.openConnection();
@@ -126,8 +190,8 @@ namespace Backend.Dados
                 while (reader.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id = reader.GetInt32(reader.GetOrdinal("id"));
-                    usuario.Nome = reader.GetString(reader.GetOrdinal("nome"));
+                    usuario.Id = reader.GetInt32(reader.GetOrdinal("@id"));
+                    usuario.Nome = reader.GetString(reader.GetOrdinal("@nome"));
                     lUsuario.Add(usuario);
                 }
                 this.conn.closeConnection();
@@ -141,8 +205,15 @@ namespace Backend.Dados
             return lUsuario;
 
 
+        }
+       
+        
+
+
+
 
         }
+        
     }
-}
+
 

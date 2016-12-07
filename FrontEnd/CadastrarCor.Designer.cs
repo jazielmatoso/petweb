@@ -42,6 +42,7 @@
             this.buttonInserirCor.TabIndex = 0;
             this.buttonInserirCor.Text = "Inserir";
             this.buttonInserirCor.UseVisualStyleBackColor = true;
+            this.buttonInserirCor.Click += new System.EventHandler(this.buttonInserirCor_Click);
             // 
             // button2
             // 
@@ -58,9 +59,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(23, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Descrição";
+            this.label1.Text = "Cor";
             // 
             // textBoxNovaCor
             // 

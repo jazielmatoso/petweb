@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Backend.Basicas
 {
    public class Raca
     {
         private int id;
         private string nome;
+        
         private DateTime data_cadastro;
 
         public Raca() {
@@ -41,6 +43,8 @@ namespace Backend.Basicas
                 nome = value;
             }
         }
+
+        
 
         public DateTime Data_cadastro
         {

@@ -20,8 +20,8 @@ namespace FrontEnd
         {
             f = Fachada.getInstancia();
             Cliente cliente = new Cliente();
-            cliente.Cpf = Convert.ToInt32(TextBoxCpf.Text);
-            cliente.Rg = Convert.ToInt32(TextBoxRg.Text);
+            cliente.Cpf = (TextBoxCpf.Text);
+            cliente.Rg = (TextBoxRg.Text);
             f.inserirCliente(cliente);
             MessageBox.Show("Cliente cadastrado com sucesso!");
             //this.listarUsuarios();

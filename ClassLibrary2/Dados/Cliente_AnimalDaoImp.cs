@@ -41,7 +41,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@cliente_id", cliente_animal.Cliente_id.Usuario.Id);
+                //cmd.Parameters.AddWithValue("@cliente_id", cliente_animal.Cliente_id.Usuario.Id);
                 cmd.Parameters.AddWithValue("@cpf", cliente_animal.Animal_id.Id);
                 
 
@@ -70,12 +70,12 @@ namespace Backend.Dados
                 cmd.CommandText = "select usuario.nome, animal.nome,especie.nome from animal_cliente inner join animal on animal.id = animal_cliente.animal_id inner join cliente on cliente.usuario_id = animal_cliente.cliente_id inner join usuario on cliente.usuario_id = usuario.id inner join especie on animal.especie_id = especie.id where usuario.id = @usuario_id";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
-                cmd.Parameters.AddWithValue("@cliente_id", cliente_animal.Cliente_id.Usuario.Id);
+                //cmd.Parameters.AddWithValue("@cliente_id", cliente_animal.Cliente_id.Usuario.Id);
                 while (reader.Read())
                 {
                     Cliente_Animal clianim = new Cliente_Animal();
                    
-                    clianim.Cliente_id.Usuario.Nome = reader.GetString(reader.GetOrdinal("usuario.nome"));
+                 //   clianim.Cliente_id.Usuario.Nome = reader.GetString(reader.GetOrdinal("usuario.nome"));
                     clianim.Animal_id.Nome = reader.GetString(reader.GetOrdinal("animal.nome"));
                     clianim.Animal_id.Especie.Nome = reader.GetString(reader.GetOrdinal("especie.nome"));
                     lcliente.Add(clianim);

@@ -17,7 +17,7 @@ namespace Backend.Dados
         Conexao conn;
 
 
-        public void EsspecieDaoImp(){
+        public EspecieDaoImp(){
 
             this.conn = new Conexao();
         }
@@ -34,7 +34,7 @@ namespace Backend.Dados
                 this.conn.openConnection();
                 Especie especie = new Especie();
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT id,nome FROM especie WHERE id = @especie";
+                cmd.CommandText = "SELECT id,nome,descricao,data_cadastro FROM especie WHERE id = @especie";
                 cmd.Connection = this.conn.SqlConn;
                 cmd.Parameters.AddWithValue("@especie", especieId);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -165,13 +165,13 @@ namespace Backend.Dados
                 this.conn.openConnection();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select especie_id,nome,descricao from especie";
+                cmd.CommandText = "select id,nome,descricao from especie";
                 cmd.Connection = this.conn.SqlConn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     Especie especie = new Especie();
-                    especie.Id = reader.GetInt32(reader.GetOrdinal("especie_id"));
+                    especie.Id = reader.GetInt32(reader.GetOrdinal("id"));
                     especie.Nome = reader.GetString(reader.GetOrdinal("nome"));
                     especie.Descricao = reader.GetString(reader.GetOrdinal("descricao"));
 

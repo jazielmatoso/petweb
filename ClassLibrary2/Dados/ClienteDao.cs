@@ -10,13 +10,13 @@ namespace Backend.Dados
     public interface ClienteDao
     {
 
-        List<Cliente> listCliente();
+        //List<Cliente> listCliente();
 
         void insertCliente(Cliente cliente);
 
-        void alterarCliente(Cliente cliente);
+       // void alterarCliente(Cliente cliente);
 
-        void deletarCliente(Cliente cliente);
+       // void deletarCliente(Cliente cliente);
 
     }
 }

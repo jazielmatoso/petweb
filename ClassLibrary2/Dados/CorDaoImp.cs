@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Backend.Basicas;
 using Backend.Erro;
 using Backend.Util;
@@ -59,7 +60,7 @@ namespace Backend.Dados
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id",cor.Id);
+                cmd.Parameters.AddWithValue("@id", cor.Id);
 
                 cmd.ExecuteNonQuery();
                 this.conn.closeConnection();
@@ -79,13 +80,13 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO cor(id,nome) VALUES (@id,@nome)";
+                string sql = "INSERT INTO cor(nome) VALUES (@nome)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", cor.Id);
+                //cmd.Parameters.AddWithValue("@id", cor.Id);
                 cmd.Parameters.AddWithValue("@nome", cor.Nome);
 
 
@@ -102,36 +103,61 @@ namespace Backend.Dados
             }
         }
 
+
         public List<Cor> listCor()
         {
-            List<Cor> lCor = new List<Cor>();
-
             try
             {
-                this.conn.openConnection();
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select id,nome from cor";
-                cmd.Connection = this.conn.SqlConn;
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                XmlDocument medidas = new XmlDocument();
+                medidas.Load(@"C:\Users\Moises\Desktop\Eudes\petweB\ClassLibrary2\File\Cores.xml");
+                List<Cor> listMedida = new List<Cor>();
+                foreach (XmlNode item in medidas.DocumentElement.ChildNodes)
                 {
                     Cor cor = new Cor();
-                    cor.Id = reader.GetInt32(reader.GetOrdinal("id"));
-                    cor.Nome = reader.GetString(reader.GetOrdinal("nome"));
-                  
-                    lCor.Add(cor);
+                    cor.Nome = item.ChildNodes.Item(0).ChildNodes.Item(0).InnerText;
+                    listMedida.Add(cor);
                 }
-                this.conn.closeConnection();
+                return listMedida;
             }
-            catch (SqlException ce)
+
+            catch (GeralException c)
             {
-
-                throw new DaoException("Erro ao listar Usuarios :" + ce.Message);
+                throw new GeralException(c.Message);
             }
-
-            return lCor;
 
         }
+
+
+        /* public List<Cor> listCor()
+       {
+           List<Cor> lCor = new List<Cor>();
+
+           try
+           {
+               this.conn.openConnection();
+
+               SqlCommand cmd = new SqlCommand();
+               cmd.CommandText = "select id,nome from cor";
+               cmd.Connection = this.conn.SqlConn;
+               SqlDataReader reader = cmd.ExecuteReader();
+               while (reader.Read())
+               {
+                   Cor cor = new Cor();
+                   cor.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                   cor.Nome = reader.GetString(reader.GetOrdinal("nome"));
+
+                   lCor.Add(cor);
+               }
+               this.conn.closeConnection();
+           }
+           catch (SqlException ce)
+           {
+
+               throw new DaoException("Erro ao listar Usuarios :" + ce.Message);
+           }
+
+           return lCor;
+
+       } */
     }
 }

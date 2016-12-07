@@ -6,60 +6,22 @@ using System.Threading.Tasks;
 
 namespace Backend.Basicas
 {
-    public class Cliente
-    {
+    public class Cliente { 
 
+        public int Id { get; set; }
+        public string CPF { get; set; }
+        public string RG { get; set; }
 
-        private int cpf;
-        private int rg;
-        private Usuario usuario;
+        public Cliente(int id, string cpf, string rg)
+        {
+            Id = id;
+            CPF = cpf;
+            RG = rg;
+        }
 
         public Cliente()
         {
-        
-            this.usuario = new Usuario();
         }
-       
-        
-        
-        public int Cpf
-        {
-            get
-            {
-                return cpf;
-            }
-
-            set
-            {
-                cpf = value;
-            }
-        }
-
-        public int Rg
-        {
-            get
-            {
-                return rg;
-            }
-
-            set
-            {
-                rg = value;
-            }
-        }
-        public Usuario Usuario
-        {
-            get
-            {
-                return usuario;
-            }
-
-            set
-            {
-                usuario = value;
-            }
-        }
-
     }
 }
 

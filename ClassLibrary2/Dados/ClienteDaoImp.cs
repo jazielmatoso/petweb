@@ -60,7 +60,7 @@ namespace Backend.Dados
 
 
 
-
+            /*
 
          public void alterarCliente(Cliente cliente)
         {
@@ -113,7 +113,7 @@ namespace Backend.Dados
 
                 throw new DaoException("Erro ao Deletar Usuario :" + ce.Message);
             }
-        }
+        }*/
 
         public void insertCliente(Cliente cliente)
         {
@@ -121,15 +121,16 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO cliente(usuario_id,cpf,rg) VALUES (@cliente_id,@cpf,@rg)";
+                //  string sql = " INSERT INTO cliente(cpf,rg) OUTPUT INSERTED.PK__cliente__2ED7D2AF24517759 VALUES (@cliente_id,@cpf,@rg)";
+                string sql = "INSERT INTO cliente(usuario_id,cpf,rg) VALUES (@usuario_id,@cpf,@rg)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
-
-                cmd.Parameters.AddWithValue("@cliente_id",cliente.Usuario.Id);
-                cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
-                cmd.Parameters.AddWithValue("@rg", cliente.Rg);
+               // int modified = (int)cmd.ExecuteScalar();
+                cmd.Parameters.AddWithValue("@usuario_id", cliente.Id);
+                cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
+                cmd.Parameters.AddWithValue("@rg", cliente.RG);
 
 
 
@@ -144,7 +145,7 @@ namespace Backend.Dados
                 throw new DaoException("Erro ao Inserir Usuario :" + ce.Message);
             }
         }
-
+        /*
         public List<Cliente> listCliente()
         {
             {
@@ -162,8 +163,8 @@ namespace Backend.Dados
                     {
                         Cliente cliente = new Cliente();
                         cliente.Usuario.Id= reader.GetInt32(reader.GetOrdinal("usuario_id"));
-                        cliente.Cpf = reader.GetInt32(reader.GetOrdinal("cpf"));
-                        cliente.Rg = reader.GetInt32(reader.GetOrdinal("rg"));
+                        cliente.Cpf = reader.GetString(reader.GetOrdinal("cpf"));
+                        cliente.Rg = reader.GetString(reader.GetOrdinal("rg"));
                         lcliente.Add(cliente);
                     }
                     this.conn.closeConnection();
@@ -179,7 +180,7 @@ namespace Backend.Dados
 
 
             }
-        }
+        }*/
     }
 }
 

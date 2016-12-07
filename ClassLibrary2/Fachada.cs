@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Backend.Basicas;
-using Backend.Dados;
 using Backend.Negocio;
 
 namespace Backend
@@ -23,6 +22,7 @@ namespace Backend
         private RacaController racaC;
         private Cliente_AnimalController cli_animC;
         private Animal_corController ani_corC;
+        private Animal_RacaController ani_racaC;
 
 
        
@@ -35,6 +35,7 @@ namespace Backend
             racaC = new RacaController();
             cli_animC = new Cliente_AnimalController();
             ani_corC = new Animal_corController();
+            ani_racaC = new Animal_RacaController();
 
         }
 
@@ -50,12 +51,17 @@ namespace Backend
             return instancia;
         }
 
+        public Usuario FazerLogin(string login, string senha)
+        {
+            return usuarioC.FazerLogin(login, senha);
+        }
+
         
 
-        public void inserirUsuario(Usuario usuario)
+        public Usuario inserirUsuario(Usuario usuario)
         {
 
-            usuarioC.cadastrar(usuario);
+            return usuarioC.cadastrar(usuario);
 
         }
 
@@ -63,8 +69,7 @@ namespace Backend
         {
             return usuarioC.listar();
         }
-
-
+        
         public void alterarUsuario(Usuario usuario)
         {
             usuarioC.alterar(usuario);
@@ -76,6 +81,7 @@ namespace Backend
             usuarioC.deletar(usuario);
         }
 
+       
 
 
         /////////////////////////////////////////////
@@ -234,6 +240,20 @@ namespace Backend
         public List<Animal_Cor> listarAnimal_cor()
         {
             return ani_corC.listar();
+        }
+
+        ////////////////////Animal_Raca
+
+        public void insertAnimal_Raca(Animal_Raca animal_raca)
+        {
+
+            ani_racaC.cadastrar(animal_raca);
+
+        }
+
+        public List<Animal_Raca> listarAnimal_Raca()
+        {
+            return ani_racaC.listar();
         }
 
 

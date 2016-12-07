@@ -54,7 +54,7 @@ namespace Backend.Basicas
         public Cliente_Animal() {
 
             this.Animal_id = new Animal();
-            this.Cliente_id = new Cliente();
+         //   this.Cliente_id = new Cliente();
         }
 
 

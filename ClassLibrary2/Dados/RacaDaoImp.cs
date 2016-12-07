@@ -32,6 +32,7 @@ namespace Backend.Dados
                 cmd.CommandText = sql;
 
                 cmd.Parameters.AddWithValue("@nome", raca.Nome);
+                
                 cmd.Parameters.AddWithValue("@id", raca.Id);
 
                 cmd.ExecuteNonQuery();
@@ -78,15 +79,16 @@ namespace Backend.Dados
             {
 
                 this.conn.openConnection();
-                string sql = "INSERT INTO raca(id,nome) VALUES (@id,@nome)";
+                //string sql = "INSERT INTO raca(id,nome) VALUES (@id,@nome)";
+               string sql = "INSERT INTO raca(nome) VALUES (@nome)";
                 //SqlCommand cmd = new SqlCommand(sql, conn.getConn());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = this.conn.SqlConn;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("@id", raca.Id);
+                //cmd.Parameters.AddWithValue("@id", raca.Id);
                 cmd.Parameters.AddWithValue("@nome", raca.Nome);
-
+               
 
 
                 cmd.ExecuteNonQuery();
